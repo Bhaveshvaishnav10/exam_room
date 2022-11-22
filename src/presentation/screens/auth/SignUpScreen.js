@@ -52,6 +52,7 @@ const SignUpScreen = () => {
         type: 'successToast',
         text1: 'Registered successfully',
       });
+      navigation.navigate(LOGIN_SCREEN);
     } else {
       await secureStorage.setItem(
         'User',
@@ -61,6 +62,7 @@ const SignUpScreen = () => {
         type: 'successToast',
         text1: 'Registered successfully',
       });
+      navigation.navigate(LOGIN_SCREEN);
     }
   };
 
@@ -109,7 +111,7 @@ const SignUpScreen = () => {
         value={userName}
         inputStyles={{
           color: BLACK_COLOR,
-          fontFamily: 'Nunito-Regular',
+
           paddingLeft: 30,
           height: 50,
         }}
@@ -147,7 +149,7 @@ const SignUpScreen = () => {
         value={email}
         inputStyles={{
           color: BLACK_COLOR,
-          fontFamily: 'Nunito-Regular',
+
           paddingLeft: 30,
           height: 50,
         }}
@@ -199,7 +201,7 @@ const SignUpScreen = () => {
         value={password}
         inputStyles={{
           color: BLACK_COLOR,
-          fontFamily: 'Nunito-Regular',
+
           paddingLeft: 30,
           height: 50,
         }}
@@ -215,7 +217,6 @@ const SignUpScreen = () => {
       <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 20}}>
         <CustomText
           style={{
-            fontFamily: 'Nunito-Regular',
             fontSize: 16,
             color: '#8D8D8D',
           }}>
@@ -229,7 +230,7 @@ const SignUpScreen = () => {
           <CustomText
             style={{
               color: TEXT_COLOR,
-              fontFamily: 'Nunito-Regular',
+
               fontSize: 16,
             }}>
             {' '}

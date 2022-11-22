@@ -31,7 +31,6 @@ const CustomButton = ({
       <CustomText
         style={{
           fontSize: 16,
-          fontFamily: 'Nunito-Medium',
           color: WHITE_COLOR,
           ...textStyles,
         }}>

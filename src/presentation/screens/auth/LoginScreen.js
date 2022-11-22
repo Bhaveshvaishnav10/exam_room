@@ -107,7 +107,6 @@ const LoginScreen = () => {
         value={email}
         inputStyles={{
           color: BLACK_COLOR,
-          fontFamily: 'Nunito-Regular',
           paddingLeft: 30,
           height: 50,
         }}
@@ -159,7 +158,6 @@ const LoginScreen = () => {
         value={password}
         inputStyles={{
           color: BLACK_COLOR,
-          fontFamily: 'Nunito-Regular',
           paddingLeft: 30,
           height: 50,
         }}
@@ -175,7 +173,6 @@ const LoginScreen = () => {
       <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 20}}>
         <CustomText
           style={{
-            fontFamily: 'Nunito-Regular',
             fontSize: 16,
             color: '#8D8D8D',
           }}>
@@ -189,7 +186,6 @@ const LoginScreen = () => {
           <CustomText
             style={{
               color: TEXT_COLOR,
-              fontFamily: 'Nunito-Regular',
               fontSize: 16,
             }}>
             {' '}

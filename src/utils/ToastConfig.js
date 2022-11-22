@@ -16,9 +16,7 @@ export const toastConfig = {
         zIndex: 11,
         minHeight: 70,
       }}>
-      <Text style={{color: '#1E1E1E', fontFamily: 'Rubik-Regular'}}>
-        {text1}
-      </Text>
+      <Text style={{color: '#1E1E1E'}}>{text1}</Text>
     </View>
   ),
 
@@ -37,9 +35,7 @@ export const toastConfig = {
         zIndex: 11,
         minHeight: 70,
       }}>
-      <Text style={{color: '#1E1E1E', fontFamily: 'Rubik-Regular'}}>
-        {text1}
-      </Text>
+      <Text style={{color: '#1E1E1E'}}>{text1}</Text>
     </View>
   ),
 
@@ -54,9 +50,7 @@ export const toastConfig = {
         zIndex: 11,
         padding: 10,
       }}>
-      <Text style={{color: '#1E1E1E', fontFamily: 'Rubik-Regular'}}>
-        {text1}
-      </Text>
+      <Text style={{color: '#1E1E1E'}}>{text1}</Text>
     </View>
   ),
   validationSuccessToast: ({text1, props}) => (
@@ -70,7 +64,7 @@ export const toastConfig = {
         zIndex: 11,
         padding: 10,
       }}>
-      <Text style={{color: 'white', fontFamily: 'Rubik-Regular'}}>{text1}</Text>
+      <Text style={{color: 'white'}}>{text1}</Text>
     </View>
   ),
 };

@@ -282,7 +282,6 @@ const CustomInput = ({
               fontSize: 17,
               width: isIconAvailable ? '90%' : '100%',
               paddingVertical: Platform.OS === 'ios' ? 16 : 10.5,
-              fontFamily: value ? 'Rubik-Medium' : 'Rubik-Regular',
               color: BLACK_COLOR,
               paddingLeft: 15,
               ...inputStyles,
