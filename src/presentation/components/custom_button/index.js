@@ -19,7 +19,7 @@ const CustomButton = ({
       activeOpacity={0.7}
       disabled={disabled}
       style={{
-        padding: Platform.OS === 'ios' ? 18 : 15,
+        padding: Platform.OS === 'ios' ? 12 : 15,
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',

@@ -281,11 +281,11 @@ const CustomInput = ({
             style={{
               fontSize: 17,
               width: isIconAvailable ? '90%' : '100%',
-              paddingVertical: Platform.OS === 'ios' ? 16 : 10.5,
+              paddingVertical: Platform.OS === 'ios' ? 10 : 10.5,
               color: BLACK_COLOR,
               paddingLeft: 15,
-              ...inputStyles,
               letterSpacing: validator === 'mpin' && value.length > 0 ? 10 : 0,
+              ...inputStyles,
             }}
             placeholder={placeholder}
             maxLength={maxLength}
