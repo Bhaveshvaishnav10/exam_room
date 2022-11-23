@@ -1,6 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import {
+  Dimensions,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import CustomInput from '../../components/custom_input';
 import {HireIcon} from '../../resources/assestsManager';
 import Icon from 'react-native-vector-icons/Feather';
@@ -68,132 +78,143 @@ const LoginScreen = () => {
     } else setDisabled(true);
   }, [email, password]);
   return (
-    <View style={styles.container}>
-      <Image source={HireIcon} style={styles.image} />
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : null}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}
+      style={{
+        backgroundColor: 'white',
+        height: '100%',
+      }}>
+      <ScrollView>
+        <View style={styles.container}>
+          <Image source={HireIcon} style={styles.image} />
 
-      <View style={{width: '100%'}}>
-        <CustomText style={{fontSize: 24}}>Welcome,</CustomText>
-      </View>
+          <View style={{width: '100%'}}>
+            <CustomText style={{fontSize: 24}}>Welcome,</CustomText>
+          </View>
 
-      <CustomInput
-        type={'iconInput'}
-        onChangeText={data => {
-          setEmail(data);
-        }}
-        isIconAvailable={true}
-        leftComponent={
-          <Icon
-            name="mail"
-            style={{
-              position: 'absolute',
-              color: email ? TEXT_COLOR : '#979C9E',
-              left: 10,
+          <CustomInput
+            type={'iconInput'}
+            onChangeText={data => {
+              setEmail(data);
             }}
-            size={24}
-          />
-        }
-        placeholder="Enter email address"
-        placeholderTextColor={'#979C9E'}
-        isFocusedRequired={true}
-        onFocus={() => {}}
-        containerStyle={{
-          marginTop: 20,
-          backgroundColor: '#F2F4F5',
-          borderWidth: 0,
-          width: '100%',
-          height: 50,
-        }}
-        validator="email"
-        value={email}
-        inputStyles={{
-          color: BLACK_COLOR,
-          paddingLeft: 30,
-          height: 50,
-        }}
-      />
-
-      <CustomInput
-        type={'iconInput'}
-        onChangeText={data => {
-          setPassword(data);
-        }}
-        isIconAvailable={true}
-        rightComponent={
-          <Icon
-            name={showPassword ? 'eye' : 'eye-off'}
-            style={{
-              position: 'absolute',
-              color: '#979C9E',
-              right: 10,
+            isIconAvailable={true}
+            leftComponent={
+              <Icon
+                name="mail"
+                style={{
+                  position: 'absolute',
+                  color: email ? TEXT_COLOR : '#979C9E',
+                  left: 10,
+                }}
+                size={24}
+              />
+            }
+            placeholder="Enter email address"
+            placeholderTextColor={'#979C9E'}
+            isFocusedRequired={true}
+            onFocus={() => {}}
+            containerStyle={{
+              marginTop: 20,
+              backgroundColor: '#F2F4F5',
+              borderWidth: 0,
+              width: '100%',
+              height: 50,
             }}
-            size={22}
-            onPress={() => setShowPassword(!showPassword)}
-          />
-        }
-        leftComponent={
-          <Icon
-            name="lock"
-            style={{
-              position: 'absolute',
-              color: password ? TEXT_COLOR : '#979C9E',
-              left: 10,
+            validator="email"
+            value={email}
+            inputStyles={{
+              color: BLACK_COLOR,
+              paddingLeft: 30,
+              height: 50,
             }}
-            size={24}
           />
-        }
-        secureTextEntry={showPassword ? false : true}
-        placeholder="Enter password"
-        placeholderTextColor={'#979C9E'}
-        maxLength={16}
-        isFocusedRequired={true}
-        onFocus={() => {}}
-        containerStyle={{
-          marginTop: 20,
-          backgroundColor: '#F2F4F5',
-          borderWidth: 0,
-          width: '100%',
-          height: 50,
-        }}
-        validator="password"
-        value={password}
-        inputStyles={{
-          color: BLACK_COLOR,
-          paddingLeft: 30,
-          height: 50,
-        }}
-      />
 
-      <CustomButton
-        title={'Sign In'}
-        disabled={disabled}
-        style={{marginTop: 25, height: 50}}
-        onPress={() => onLoginUser()}
-      />
+          <CustomInput
+            type={'iconInput'}
+            onChangeText={data => {
+              setPassword(data);
+            }}
+            isIconAvailable={true}
+            rightComponent={
+              <Icon
+                name={showPassword ? 'eye' : 'eye-off'}
+                style={{
+                  position: 'absolute',
+                  color: '#979C9E',
+                  right: 10,
+                }}
+                size={22}
+                onPress={() => setShowPassword(!showPassword)}
+              />
+            }
+            leftComponent={
+              <Icon
+                name="lock"
+                style={{
+                  position: 'absolute',
+                  color: password ? TEXT_COLOR : '#979C9E',
+                  left: 10,
+                }}
+                size={24}
+              />
+            }
+            secureTextEntry={showPassword ? false : true}
+            placeholder="Enter password"
+            placeholderTextColor={'#979C9E'}
+            maxLength={16}
+            isFocusedRequired={true}
+            onFocus={() => {}}
+            containerStyle={{
+              marginTop: 20,
+              backgroundColor: '#F2F4F5',
+              borderWidth: 0,
+              width: '100%',
+              height: 50,
+            }}
+            validator="password"
+            value={password}
+            inputStyles={{
+              color: BLACK_COLOR,
+              paddingLeft: 30,
+              height: 50,
+            }}
+          />
 
-      <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 20}}>
-        <CustomText
-          style={{
-            fontSize: 16,
-            color: '#8D8D8D',
-          }}>
-          Don’t have an account?
-        </CustomText>
+          <CustomButton
+            title={'Sign In'}
+            disabled={disabled}
+            style={{marginTop: 25, height: 50}}
+            onPress={() => onLoginUser()}
+          />
 
-        <Pressable
-          onPress={() => {
-            navigation.navigate(SIGNUP_SCREEN);
-          }}>
-          <CustomText
-            style={{
-              color: TEXT_COLOR,
-              fontSize: 16,
-            }}>
-            {' '}
-            Sign up
-          </CustomText>
-        </Pressable>
-      </View>
-    </View>
+          <View
+            style={{flexDirection: 'row', alignItems: 'center', marginTop: 20}}>
+            <CustomText
+              style={{
+                fontSize: 16,
+                color: '#8D8D8D',
+              }}>
+              Don’t have an account?
+            </CustomText>
+
+            <Pressable
+              onPress={() => {
+                navigation.navigate(SIGNUP_SCREEN);
+              }}>
+              <CustomText
+                style={{
+                  color: TEXT_COLOR,
+                  fontSize: 16,
+                }}>
+                {' '}
+                Sign up
+              </CustomText>
+            </Pressable>
+          </View>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
